@@ -1,0 +1,1 @@
+import '../styles/globals.css'; export const metadata={title:'DreamWisdom',description:'Islamic Dream Interpretation'}; export default function Root({children}:{children:React.ReactNode}){return <html lang='en'><body>{children}</body></html>}
