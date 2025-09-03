@@ -1,6 +1,8 @@
+@"
 node_modules
 .next
 out
 .env
 .env.*
 firebase-debug.log
+"@ | Out-File -Encoding utf8 .gitignore
