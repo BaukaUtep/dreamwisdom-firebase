@@ -1,1 +1,0 @@
-export default function Page(){return <main className='min-h-screen grid place-items-center p-12 text-center'><div><h1 className='text-3xl font-bold'>DreamWisdom</h1><p className='text-gray-500 mt-2'>Redirecting…</p><script dangerouslySetInnerHTML={{__html:`location.href='/en/';`}}/></div></main> }
