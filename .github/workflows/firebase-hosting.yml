@@ -1,0 +1,48 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Build (Next export + sitemap)
+        run: npm run build
+        env:
+          SITE_URL: https://dreamwisdom-firebase-46707352.web.app
+
+      # Превью для Pull Request
+      - name: Deploy Preview
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_dreamwisdom-firebase-46707352 }}'
+          projectId: dreamwisdom-firebase-46707352
+          channelId: preview-${{ github.event.number }}
+          expires: 30d
+
+      # Продакшен при пуше в main
+      - name: Deploy Live
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_dreamwisdom-firebase-46707352 }}'
+          projectId: dreamwisdom-firebase-46707352
+          channelId: live
