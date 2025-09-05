@@ -1,0 +1,1 @@
+export default function BlogPage(){const t={"h": "Түстер блогы", "п": "Нұсқаулықтар, символика, мәдени контекст. (Жақында)", "p": "Нұсқаулықтар, символика, мәдени контекст. (Жақында)"} as const;return(<section><h1 className='text-2xl font-bold'>{t.h}</h1><p className='mt-2 text-gray-700'>{t.p}</p></section>)}

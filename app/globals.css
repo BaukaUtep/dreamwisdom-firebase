@@ -1,0 +1,1 @@
+@tailwind base;@tailwind components;@tailwind utilities;html{scroll-behavior:smooth}body{@apply bg-white text-gray-900 antialiased}:root{--safe-top:env(safe-area-inset-top)}.header-sticky{@apply sticky top-0 z-30 bg-white/90 backdrop-blur;padding-top:var(--safe-top)}
