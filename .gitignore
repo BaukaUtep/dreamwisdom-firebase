@@ -1,8 +1,0 @@
-@"
-node_modules
-.next
-out
-.env
-.env.*
-firebase-debug.log
-"@ | Set-Content -Encoding utf8 .gitignore
