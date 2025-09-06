@@ -24,7 +24,7 @@ jobs:
       - name: Build (Next export + sitemap)
         run: npm run build
         env:
-          SITE_URL: https://dreamwisdom-firebase-46707352.web.app
+          SITE_URL: https://dream-wisdom.com
 
       # Превью для Pull Request
       - name: Deploy Preview
